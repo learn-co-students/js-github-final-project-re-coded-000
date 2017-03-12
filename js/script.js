@@ -3,7 +3,7 @@ function GithubInteractor(token){
 	this.token=token;
 
 }
-var gitInteractor=new GithubInteractor('69ccf25137aaf360380aeb95704d235c125eea90')
+var gitInteractor=new GithubInteractor('')
 function createIssue(repo,owner,title,body){
 	var url="https://api.github.com/repos/"+owner+"/"+repo+"/issues";
 	console.log(url)
