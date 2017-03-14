@@ -23,7 +23,7 @@ function createIssue(repo,owner,title,body, token){
 	.fail(handleError);
 }
 function handleResponse(json){
-	$('#issue').html("<a href='"+json.html_url+"'>"+json.title+"</a>")
+	$('#issue').append('<a href="'+json.html_url+'" target="_blank">'+json.title+'</a>');
 }
 
 function handleError(xhr,status,error){

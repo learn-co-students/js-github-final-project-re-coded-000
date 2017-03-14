@@ -9,10 +9,15 @@ form{
 	border-radius: 8px;
 	background-color: #ffe6f9;
 	margin:auto;
+	font-size: 18px;
 }
 div.panel.panel-default{
 	background-color: #130d06;
 	color: white;
 	margin-bottom: 60px;
 	width: 100%;
+}
+#issue{
+	margin: auto;
+	width: 400px;
 }
