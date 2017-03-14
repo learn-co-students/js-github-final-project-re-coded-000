@@ -6,8 +6,6 @@ function GithubInteractor(token){
 	this.token=token;
 }
 
-var gitInteractor=new GithubInteractor(`${token}`);
-
 function createIssue(repo,owner,title,body, token){
 	var url="https://api.github.com/repos/"+owner+"/"+repo+"/issues";
 	var data={
