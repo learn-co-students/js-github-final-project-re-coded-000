@@ -18,11 +18,11 @@ function createIssue(repo,owner,title,body, token){
 		url: url,
 		type: "POST",
 		data: JSON.stringify(data),
-		success: handleResponse,
 		beforeSend: function(xhr) {
      		xhr.setRequestHeader("Authorization", "token " + token);
     	}
-	}).fail(handleError);
+	}).done(handleResponse)
+	.fail(handleError);
 }
 function handleResponse(json){
 	$('#issue').html("<a href='"+json.html_url+"'>"+json.title+"</a>")
