@@ -19,8 +19,8 @@ function createIssue(repo,owner,title,body){
 		type: "POST",
 		data: JSON.stringify(data),
 		success: handleResponse,
-		headers : { Authorization: "token "+gitInteractor.token }
-	}).fail(handleError)
+		headers : { 'Authorization': "token "+gitInteractor.token }
+	}).fail(handleError);
 }
 function handleResponse(json){
 	$('#issue').html("<a href='"+json.html_url+"'>"+json.title+"</a>")
