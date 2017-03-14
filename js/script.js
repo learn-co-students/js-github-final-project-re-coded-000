@@ -5,11 +5,11 @@ $(document).ready(function(){
 function GithubInteractor(token){
 	this.token=token;
 }
-var gitInteractor=new GithubInteractor('');
 
-function createIssue(repo,owner,title,body){
+var gitInteractor=new GithubInteractor(`${token}`);
+
+function createIssue(repo,owner,title,body, token){
 	var url="https://api.github.com/repos/"+owner+"/"+repo+"/issues";
-	console.log(url)
 	var data={
 		'title': title,
 		'body': body
@@ -19,7 +19,9 @@ function createIssue(repo,owner,title,body){
 		type: "POST",
 		data: JSON.stringify(data),
 		success: handleResponse,
-		headers : { 'Authorization': "token "+gitInteractor.token }
+		beforeSend: function(xhr) {
+     		xhr.setRequestHeader("Authorization", "token " + token);
+    	}
 	}).fail(handleError);
 }
 function handleResponse(json){
@@ -37,6 +39,7 @@ function submitForm(){
 		var owner=$('#repoOwner').val();
 		var title=$('#title').val();
 		var body=$('#body').val();
-		createIssue(repo,owner,title,body)
+		var token = $('#token').val();
+		createIssue(repo,owner,title,body, token)
 	})
 }
