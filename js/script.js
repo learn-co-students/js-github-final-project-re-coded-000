@@ -1,14 +1,17 @@
+
 $(document).ready(function() {
 	  var name, title, body;
 	submitForm();
 })
 
+// tis function used as an object so it take an argument for product key .
 function GithubInteractor(token){
   this.token = token;
   this.apiBaseUrl = "https://api.github.com/repos/";
 }
 
-var interactor = new GithubInteractor("YoudPutYourTokenHereInRealProduction")
+// this is an instance of my Issues .
+var interactor = new GithubInteractor("dd12cf0e4585d953150263eb249e4be7e1307816")
 
 
 // this function to create an Issue when Ajax is successed .
@@ -18,7 +21,7 @@ function Issue(issueUrl, title, body){
 	this.body = body
 }
 
-
+// this is for creating prototype 
 Issue.prototype.renderIssue = function (htmlAddSelector) {
 	var link =  $("<a>")
 	.attr('href',this.issueUrl)
