@@ -11,6 +11,7 @@ Typically, we open an issue directly through GitHub's browser interface. But, we
 
 ## Instructions
 
+
 You'll be coding your solution in `js/script.js`.
 You'll need to visit [GitHub](https://github.com/settings/tokens) to create an access token for your application.
 
