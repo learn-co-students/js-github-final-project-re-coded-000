@@ -1,4 +1,4 @@
-var token = "3d392ba282d31c7032cf74a8db32dab3d0360070"
+
 var repo = $('#repoName').val();
 var owner = $('#repoOwner').val();
 var url = "https://api.github.com/repos/"+owner+"/"+repo+"/issues"
