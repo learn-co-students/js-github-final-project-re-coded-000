@@ -4,33 +4,38 @@ var owner = $('#repoOwner').val();
 var url = "https://api.github.com/repos/"+owner+"/"+repo+"/issues"
 var  title = $('#title').val();
 var descrip = $('#body').val();
+function GithubInteractor(token){
+	
+	this.token=token;
 
-function successFun(json){
+}
+
+
+function handleResponse(json){
 		
 		var link = `<a href = '${json.html_url}'>${json.title}</a>`;
 
 		$('#issue').append(link);}
 
-function errorFun(error_name){ console.log("Post error: "+ error_name);}
+function handleError(jqXHR, textStatus, errorThrown){ console.log("Post error: "+ errorThrown);}
 
 function createIssue(repo, owner, title, descrip) {
 	var url = "https://api.github.com/repos/"+owner+"/"+repo+"/issues"
  var data = {
     'title': title,
     'body': descrip,
-   'state': "open",
   }
 $.ajax({
 	url:  url,
-	type: 'post',
+	type: 'POST',
 	dataType: 'json',
 	headers: {
-			Authorization: "token "+token,
+			Authorization: "token "+GithubInteractor(token),
 		},
 		
 		data: JSON.stringify(data)
 
-}).done(successFun).fail(errorFun);}
+}).done(handleResponse).fail(handleError);}
 
 
 function submitForm() {
